@@ -1,0 +1,4 @@
+#sidebar Documentation
+
+  * [Documentation Documentation]
+    * [Configuration Configuration]
