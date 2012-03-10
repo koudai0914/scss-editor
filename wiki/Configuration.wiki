@@ -7,6 +7,7 @@ If you want to override these options for a given file, you can use the new docb
 
 <code language="css">
 /**
+ 
  * @outputStyle compressed
  * @debugInfo true
  * @lineComments true
@@ -21,6 +22,7 @@ Also, you can specify the output path for the CSS, using the `@outputFile` tag:
 
 <code language="css">
 /**
+ 
  * @outputFile ../www/css/stylesheet.css
  * @outputStyle compressed
  */
