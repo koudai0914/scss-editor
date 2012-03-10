@@ -1,8 +1,11 @@
-## Configuration
+==Configuration==
 
-The options dialogue (see above) can be used to set global options. If you want to override these options for a given file, you can use the new docblock format at the top of your file. For example:
+The options dialogue can be used to set global options. 
 
-```css
+
+If you want to override these options for a given file, you can use the new docblock format at the top of your file. For example:
+
+<code language="css">
 /**
  * @outputStyle compressed
  * @debugInfo true
@@ -12,15 +15,15 @@ The options dialogue (see above) can be used to set global options. If you want 
 body {
 	/* etc... */
 }
-```
+</code>
 
 Also, you can specify the output path for the CSS, using the `@outputFile` tag:
 
-```css
+<code language="css">
 /**
  * @outputFile ../www/css/stylesheet.css
  * @outputStyle compressed
  */
-```
+</code>
 
 The path can be relative to the SCSS file, or absolute to the project path. For instance, if the project path is */home/user/myproject/* and the `@outputPath` is */stylesheet.css*, the stylesheet will be created at */home/user/myproject/stylesheet.css*.
