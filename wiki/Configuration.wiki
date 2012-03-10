@@ -1,6 +1,8 @@
 #sidebar Documentation
 The options dialogue can be used to set global options. 
+
 <img src="http://scss-editor.googlecode.com/svn/images/options.png">
+
 
 If you want to override these options for a given file, you can use the new docblock format at the top of your file. For example:
 
