@@ -1,4 +1,4 @@
-
+#sidebar Documentation
 The options dialogue can be used to set global options. 
 
 
