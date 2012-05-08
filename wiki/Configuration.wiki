@@ -1,5 +1,6 @@
 #sidebar Documentation
-The options dialogue can be used to set global options. 
+Download [http://rubyforge.org/frs/?group_id=9702&release_id=46747 Sass] 
+and set global options. 
 
 <img src="http://scss-editor.googlecode.com/svn/images/options.png">
 
