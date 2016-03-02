@@ -1,0 +1,1 @@
+Sources are now hosted on [GitHub](https://github.com/jmarsault/scss-editor).

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+	<ModulePrefs 
+		title="gCodeAdSense" 
+		title_url="http://code.google.com/p/gcodeadsense"
+		description="AdSense Gadget for Your Google Code Project"
+		author="Frank Glaser"
+		author_email="glaserfrank@gmail.com">
+	</ModulePrefs>
+	<UserPref name="ad_client"    datatype="string" required="true" />
+	<UserPref name="ad_slot"      datatype="string" required="true" />
+	<UserPref name="ad_width"     datatype="string" default_value="0" />
+	<UserPref name="ad_height"    datatype="string" default_value="0" />
+	<UserPref name="ad_keywords"  datatype="string" default_value="" />
+	<UserPref name="ad_project"   datatype="string" default_value="" />
+	<Content type="html">
+		<![CDATA[
+			<!--gCodeAdSense V1.20-->
+			<script type="text/javascript">
+				
+				/* Get options */
+				var prefs = new gadgets.Prefs();
+				var options = {
+					ad_client:    prefs.getString("ad_client"),
+					ad_slot:      prefs.getString("ad_slot"),
+					ad_width:     prefs.getString("ad_width"),
+					ad_height:    prefs.getString("ad_height"),
+					ad_keywords:  prefs.getString("ad_keywords"),
+					ad_project:   prefs.getString("ad_project"),
+				};
+				
+				<!--Add keywords-->
+				function addKeywords() {
+					if (options.ad_keywords != "") {
+						var eldiv = document.createElement("div");
+						var attstyle = document.createAttribute("style");
+						attstyle.nodeValue = "display:none";
+						eldiv.setAttributeNode(attstyle);
+						eldiv.innerHTML = options.ad_keywords;
+						var doc = this.document.body;
+						doc.appendChild(eldiv);
+					}
+				}
+				
+				<!--Add IFrame-->
+				function addIFrame() {
+					if (options.ad_project != "") {
+						var elifr = document.createElement("iframe");
+						var attsrc = document.createAttribute("src");
+						attsrc.nodeValue = options.ad_project;
+						elifr.setAttributeNode(attsrc);
+						var attstyle = document.createAttribute("style");
+						attstyle.nodeValue = "display:none";
+						elifr.setAttributeNode(attstyle);
+						var doc = this.document.body;
+						doc.appendChild(elifr);
+					}
+				}
+				
+				/* Add AdSense */
+				function addAdSense() {
+					if (options.ad_width <= 0) {
+						options.ad_width = this.document.body.clientWidth;
+					}
+					
+					if (options.ad_height <= 0) {
+						options.ad_height = this.document.body.clientHeight;
+					}
+					
+					var element = document.createElement("script");
+					element.type = "text/javascript";
+					element.innerHTML =	'<!--\n' +
+															'google_ad_client = "ca-pub-' + options.ad_client + '";\n' +
+															'google_ad_slot   = "' + options.ad_slot + '";\n' +
+															'google_ad_width  = ' + options.ad_width + ';\n' +
+															'google_ad_height = ' + options.ad_height + ';\n' +
+															'//-->';
+					var doc = this.document.body;
+					doc.appendChild(element);
+				}
+				
+				addKeywords();
+				addIFrame()
+				addAdSense();
+				
+			</script>
+			<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
+			
+
+		]]>
+	</Content>
+</Module>
